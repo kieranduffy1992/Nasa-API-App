@@ -8,17 +8,17 @@ search_form.addEventListener('submit', (e) => {
     let searchTerm = search.value;
     let API_URL =  `https://images-api.nasa.gov/search?q=${searchTerm}&media_type=image`;
 
-    getMovies(API_URL);
+    getResults(API_URL);
 })
 
-function getMovies(url) {
+function getResults(url) {
 
     fetch(url).then(res => res.json()).then(data => {
-        showMovies(data.collection);
+        showResults(data.collection);
     })
 }
 
-function showMovies(data){
+function showResults(data){
 
     results.innerHTML = '';
     let images = data.items;
